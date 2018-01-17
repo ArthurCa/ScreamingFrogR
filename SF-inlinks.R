@@ -61,7 +61,7 @@ url500 <- subset(All_inlinks, code == 500)
 if (!is.null(url500)) {
 total500 <- group_by(url500, dest)
 total500 <- summarize(total500, total = n())
-total500 <- arrange(total505, desc(total))
+total500 <- arrange(total500, desc(total))
 total500["Links position"] <- ifelse(total500$total>=1000,"menu","submenu or content")
 WriteXLS(url500, ExcelFileName = paste(project_id, "500_from_to.xls", sep = "/"))
 WriteXLS(total500, ExcelFileName = paste(project_id, "500_inlinks.xls", sep = "/"))
